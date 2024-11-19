@@ -27,55 +27,55 @@
 ## Screenshot
 
 1. Login
-   ![Login](.screenshots/1.login.png)
+   ![Login](.screenshot/1.login.png)
 
 2. Home
-   ![Home](.screenshots/2.home.png)
+   ![Home](.screenshot/2.home.png)
 
 3. Users
-   ![Users](.screenshots/3.user-list.png)
+   ![Users](.screenshot/3.user-list.png)
 
     Create User
-    ![Create User](.screenshots/4.user-create.png)
+    ![Create User](.screenshot/4.user-create.png)
 
     Edit User
-    ![Edit User](.screenshots/5.user-edit.png)
+    ![Edit User](.screenshot/5.user-edit.png)
 
     Delete User
-    ![Delete User](.screenshots/6.user-delete.png)
+    ![Delete User](.screenshot/6.user-delete.png)
 
     Detail User
-    ![Detail User](.screenshots/7.user-detail.png)
+    ![Detail User](.screenshot/7.user-detail.png)
 
 4. Items
-   ![Items](.screenshots/8.item-list.png)
+   ![Items](.screenshot/8.item-list.png)
 
     Create Item
-    ![Create Item](.screenshots/9.item-create.png)
+    ![Create Item](.screenshot/9.item-create.png)
 
     Edit Item
-    ![Edit Item](.screenshots/10.item-edit.png)
+    ![Edit Item](.screenshot/10.item-edit.png)
 
     Delete Item
-    ![Delete Item](.screenshots/11.item-delete.png)
+    ![Delete Item](.screenshot/11.item-delete.png)
 
     Detail Item
-    ![Detail Item](.screenshots/12.item-detail.png)
+    ![Detail Item](.screenshot/12.item-detail.png)
 
 5. Sales
-   ![Sales](.screenshots/5.sale-list.png)
+   ![Sales](.screenshot/5.sale-list.png)
 
     Create Sale
-    ![Create Sale](.screenshots/13.sale-create.png)
+    ![Create Sale](.screenshot/13.sale-create.png)
 
     Edit Sale
-    ![Edit Sale](.screenshots/14.sale-edit.png)
+    ![Edit Sale](.screenshot/14.sale-edit.png)
 
     Delete Sale
-    ![Delete Sale](.screenshots/15.sale-delete.png)
+    ![Delete Sale](.screenshot/15.sale-delete.png)
 
     Detail Sale
-    ![Detail Sale](.screenshots/16.sale-detail.png)
+    ![Detail Sale](.screenshot/16.sale-detail.png)
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
