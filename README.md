@@ -18,19 +18,6 @@
 - Run <strong>php artisan serve</strong>
 - Open URL in Browser
 
-## Screenshot
-
-Video Demo
-
-[![Demo Video](https://i9.ytimg.com/vi_webp/CCMvXBlMqH4/mq2.webp?sqp=CLS1rrkG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYACrgWKAgwIABABGGUgWShWMA8=&rs=AOn4CLDQSb_nnh6FxlgHQA80Yoybyf_hgw)](https://www.youtube.com/watch?v=CCMvXBlMqH4)
-
-
-Login Page
-<img src="public/assets/ss_login.png" alt="Login">
-
-Home Page
-<img src="public/assets/ss_home.png" alt="Home">
-
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
