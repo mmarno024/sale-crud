@@ -21,11 +21,19 @@
                 </a>
             </li>
             <div class="dropdown-divider"></div>
-            <li>
-                <a href="#" aria-expanded="false">
-                    <i class="fa fa-power-off menu-icon"></i><span class="nav-text">Sign out</span>
-                </a>
-            </li>
+            @if (auth()->check())
+                <li>
+                    <a href="{{ url('/logout') }}" aria-expanded="false">
+                        <i class="fa fa-power-off menu-icon"></i><span class="nav-text">Sign out</span>
+                    </a>
+                </li>
+            @else
+                <li>
+                    <a href="#" aria-expanded="false" class="text-muted" style="cursor: not-allowed;">
+                        <i class="fa fa-power-off menu-icon text-muted"></i><span class="nav-text text-muted">Sign out</span>
+                    </a>
+                </li>
+            @endif
         </ul>
     </div>
 </div>

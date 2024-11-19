@@ -17,7 +17,8 @@ class ItemController extends Controller
             return DataTables::of($items)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    return '<a class="btn btn-warning text-white" href="' . route('items.edit', $row->id) . '">Edit</a>
+                    return '<button class="btn btn-info btn-detail" data-id="' . $row->id . '">Detail</button>
+                            <a class="btn btn-warning text-white" href="' . route('items.edit', $row->id) . '">Edit</a>
                             <form action="' . route('items.destroy', $row->id) . '" method="POST" style="display:inline;" onsubmit="return confirmDelete(event, this);">
                                 ' . csrf_field() . '
                                 ' . method_field('DELETE') . '
@@ -63,9 +64,11 @@ class ItemController extends Controller
 
         return redirect()->route('items.index')->with('success', 'Item created successfully.');
     }
-    public function show($id)
+    public function show(Item $item)
     {
-        $item = Item::find($id);
+        if (request()->ajax()) {
+            return response()->json($item);
+        }
         return view('master.items.show', compact('item'));
     }
     public function edit(Item $item)

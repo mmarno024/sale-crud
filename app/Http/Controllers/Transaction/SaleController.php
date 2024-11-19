@@ -24,11 +24,12 @@ class SaleController extends Controller
                 ->addIndexColumn()
                 ->addColumn('items', function ($row) {
                     return $row->items->map(function ($item) {
-                        return $item->name . ' (Qty: ' . $item->pivot->qty . ')';
+                        return '<span class="badge badge-primary p-2">' . $item->name . ' (Qty: <strong>' . $item->pivot->qty . '</strong>)</span>';
                     })->implode(', ');
                 })
                 ->addColumn('action', function ($row) {
-                    return '<a class="btn btn-warning text-white" href="' . route('sales.edit', $row->id) . '">Edit</a>
+                    return '<button class="btn btn-info btn-detail" data-id="' . $row->id . '">Detail</button>
+                            <a class="btn btn-warning text-white" href="' . route('sales.edit', $row->id) . '">Edit</a>
                             <form action="' . route('sales.destroy', $row->id) . '" method="POST" style="display:inline;" onsubmit="return confirmDelete(event, this);">
                                 ' . csrf_field() . '
                                 ' . method_field('DELETE') . '
@@ -96,6 +97,9 @@ class SaleController extends Controller
     public function show($id)
     {
         $sale = Sale::with('items')->find($id);
+        if (request()->ajax()) {
+            return response()->json($sale);
+        }
         return view('transaction.sales.show', compact('sale'));
     }
 

@@ -18,7 +18,8 @@ class UserController extends Controller
             return DataTables::of($users)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    return '<a class="btn btn-warning text-white" href="' . route('users.edit', $row->id) . '">Edit</a>
+                    return '<button class="btn btn-info btn-detail" data-id="' . $row->id . '">Detail</button>
+                            <a class="btn btn-warning text-white" href="' . route('users.edit', $row->id) . '">Edit</a>
                             <form action="' . route('users.destroy', $row->id) . '" method="POST" style="display:inline;" onsubmit="return confirmDelete(event, this);">
                                 ' . csrf_field() . '
                                 ' . method_field('DELETE') . '
@@ -61,6 +62,9 @@ class UserController extends Controller
 
     public function show(User $user)
     {
+        if (request()->ajax()) {
+            return response()->json($user);
+        }
         return view('master.users.show', compact('user'));
     }
 

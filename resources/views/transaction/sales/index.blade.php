@@ -31,11 +31,51 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="saleDetailModal" tabindex="-1" role="dialog" aria-labelledby="saleDetailModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title text-white" id="saleDetailModalLabel">Sale Detail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Sale ID</strong></td>
+                            <td align="center">:</td>
+                            <td><span id="saleId"></span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td align="center">:</td>
+                            <td><span id="saleTotal"></span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><strong>Items</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div id="saleItems"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
     function confirmDelete(event, form) {
         event.preventDefault();
@@ -97,6 +137,40 @@
                     className: 'text-center'
                 }
             ]
+        });
+
+        $('#salesTable').on('click', '.btn-detail', function() {
+            var saleId = $(this).data('id');
+            $.ajax({
+                url: '/sales/' + saleId,
+                method: 'GET',
+                success: function(data) {
+                    $('#saleId').text(data.sale_id);
+                    $('#saleTotal').text(new Intl.NumberFormat('id-ID', {
+                        style: 'currency',
+                        currency: 'IDR'
+                    }).format(data.total));
+                    var itemsHtml = '';
+                    data.items.forEach(function(item) {
+                        itemsHtml += '<div><img src="' + item.image + '" alt="' +
+                            item.name +
+                            '" style="width:100px;"><br>' +
+                            'Nama: ' + item.name + '<br>' +
+                            'Harga per item: ' + new Intl.NumberFormat('id-ID', {
+                                style: 'currency',
+                                currency: 'IDR'
+                            }).format(item.price) + '<br>' +
+                            'Jumlah: ' + item.pivot.qty + '<br>' +
+                            'Harga Total per item: ' + new Intl.NumberFormat(
+                                'id-ID', {
+                                    style: 'currency',
+                                    currency: 'IDR'
+                                }).format(item.price * item.pivot.qty) + '</div>';
+                    });
+                    $('#saleItems').html(itemsHtml);
+                    $('#saleDetailModal').modal('show');
+                }
+            });
         });
     });
 </script>

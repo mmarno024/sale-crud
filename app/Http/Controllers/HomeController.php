@@ -23,19 +23,13 @@ class HomeController extends Controller
     //  *
     //  * @return \Illuminate\Contracts\Support\Renderable
     //  */
-    // public function index()
-    // {
-    //     return view('home');
-    // }
 
     public function index()
     {
-        // Fetch sales data
         $salesPerMonth = Sale::selectRaw('MONTH(created_at) as month, SUM(total) as total')
             ->groupBy('month')
             ->pluck('total', 'month');
 
-        // Fetch sale items data
         $salesPerItem = SaleItem::join('master_items', 'sale_item.item_id', '=', 'master_items.id')
             ->select('master_items.name', SaleItem::raw('SUM(qty) as total'))
             ->groupBy('master_items.name')

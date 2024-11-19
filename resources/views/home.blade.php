@@ -9,14 +9,25 @@
                         <h4 class="text-warning">
                             <strong>Selamat Datang di Halaman Administrator</strong>
                         </h4>
+                        <h5 class="text-secondary">
+                            <strong>Ini adalah apliaksi sederhana CRUD penjualan</strong>
+                        </h5>
+                        <hr>
                     </div>
                     <div class="col-sm-12">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-outline-primary">Nama :
-                                {{ Auth::user()->name }}</button>
-                            <button type="button" class="btn btn-outline-primary">Email :
-                                {{ Auth::user()->email }}</button>
-                        </div>
+                        @if (Auth::check())
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-primary">Nama :
+                                    {{ !empty(Auth::user()->name) ? Auth::user()->name : '' }}</button>
+                                <button type="button" class="btn btn-outline-primary">Email :
+                                    {{ !empty(Auth::user()->email) ? Auth::user()->email : '' }}</button>
+                            </div>
+                        @else
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-primary">Hilangkan comment di "web.php" untuk
+                                    mengaktifkan middleware auth dan informasi akun akan muncul disini</button>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

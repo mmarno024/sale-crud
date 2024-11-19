@@ -1,10 +1,10 @@
 <div class="nav-header">
     <div class="brand-logo">
-        <a href="index.html">
-            <b class="logo-abbr"><img src="{{ url('theme') }}/images/logo.png" alt=""> </b>
-            <span class="logo-compact"><img src="{{ url('theme') }}/images/logo-compact.png" alt=""></span>
-            <span class="brand-title">
-                <img src="{{ url('theme') }}/images/logo-text.png" alt="">
+        <a href="{{ url('/home') }}">
+            <b class="logo-abbr text-white">CRUD</b>
+            <span class="logo-compact text-white">CRUD</span>
+            <span class="brand-title text-white">
+                CRUD Penjualan
             </span>
         </a>
     </div>
@@ -30,11 +30,21 @@
                         <div class="dropdown-content-body">
                             <ul>
                                 <li>
-                                    <a href="app-profile.html"><i class="icon-user"></i>
+                                    <a href=""><i class="icon-user"></i>
                                         <span>Profile</span></a>
                                 </li>
-                                <li><a href="page-login.html"><i class="icon-key"></i> <span>Sign out</span></a>
-                                </li>
+                                @if (auth()->check())
+                                    <li><a href="{{ url('/logout') }}"><i class="icon-key"></i> <span>Sign
+                                                out</span></a>
+                                    </li>
+                                @else
+                                    <li>
+                                        <a href="#" aria-expanded="false" class="text-muted"
+                                            style="cursor: not-allowed;">
+                                            <i class="icon-key text-muted"></i> <span class="text-muted">Sign out</span>
+                                        </a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </div>

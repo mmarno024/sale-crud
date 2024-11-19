@@ -31,13 +31,11 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        {{-- @dd($sale->items) --}}
                         <div class="form-group col-md-2">
                             <label>Harga per Item</label>
-                            {{-- <input type="number" class="form-control text-right p-1 price" name="price[]" value="{{ $item->pivot->price }}" placeholder="Harga" step="0.01" readonly> --}}
                             <input type="number" class="form-control text-right p-1 price" name="price[]"
-                                value="{{ $item->pivot ? $item->pivot->price : '' }}" placeholder="Harga" step="0.01"
-                                readonly>
+                                value="{{ $item->pivot ? $item->pivot->price : $item->price }}" placeholder="Harga"
+                                step="0.01" readonly>
                         </div>
                         <div class="form-group col-md-2">
                             <label>Total per Item</label>
@@ -157,7 +155,7 @@
 
         $(document).on('click', '.remove-item', function() {
             $(this).closest('.item-row').remove();
-            calculateTotal(); // Hitung total setelah menghapus item
+            calculateTotal();
         });
 
         $('#submitSale').on('click', function() {
@@ -186,6 +184,6 @@
             });
         });
 
-        calculateTotal(); // Hitung total keseluruhan saat halaman dimuat
+        calculateTotal();
     });
 </script>

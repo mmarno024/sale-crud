@@ -25,14 +25,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
-// Route::resource('users', UserController::class);
-// Route::resource('items', ItemController::class);
-// Route::resource('sales', SaleController::class);
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::resource('users', UserController::class);
-    Route::resource('items', ItemController::class);
-    Route::resource('sales', SaleController::class);
-});
+// Route::middleware(['auth'])->group(function () {
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::resource('users', UserController::class);
+Route::resource('items', ItemController::class);
+Route::resource('sales', SaleController::class);
+// });
