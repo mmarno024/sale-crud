@@ -63,19 +63,19 @@
     ![Detail Item](.screenshot/12.item-detail.png)
 
 5. Sales
-   ![Sales](.screenshot/5.sale-list.png)
+   ![Sales](.screenshot/13.sale-list.png)
 
     Create Sale
-    ![Create Sale](.screenshot/13.sale-create.png)
+    ![Create Sale](.screenshot/14.sale-create.png)
 
     Edit Sale
-    ![Edit Sale](.screenshot/14.sale-edit.png)
+    ![Edit Sale](.screenshot/15.sale-edit.png)
 
     Delete Sale
-    ![Delete Sale](.screenshot/15.sale-delete.png)
+    ![Delete Sale](.screenshot/16.sale-delete.png)
 
     Detail Sale
-    ![Detail Sale](.screenshot/16.sale-detail.png)
+    ![Detail Sale](.screenshot/17.sale-detail.png)
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
