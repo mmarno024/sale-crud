@@ -9,11 +9,8 @@
                 </div>
                 <div class="card-body">
                     <div class="row mb-3">
-                        <div class="col-lg-8 col-sm-12">
+                        <div class="col-lg-12 col-sm-12">
                             <a href="{{ url('sales/create') }}" class="btn btn-info"><i class="fa fa-plus"></i> Tambah Sale</a>
-                        </div>
-                        <div class="col-lg-4 col-sm-12 text-end">
-                            <input type="text" class="form-control" placeholder="Search">
                         </div>
                     </div>
                     <table id="salesTable" class="table table-bordered">

@@ -10,7 +10,8 @@
                             <strong>Selamat Datang di Halaman Administrator</strong>
                         </h4>
                         <h5 class="text-secondary">
-                            <strong>Ini adalah apliaksi sederhana CRUD penjualan</strong>
+                            <strong>Ini adalah aplikasi sederhana CRUD penjualan (monolith) menggunakan Laravel
+                                9.19</strong>
                         </h5>
                         <hr>
                     </div>
@@ -50,7 +51,7 @@
                 <div class="card-body">
                     <h3 class="card-title text-white">Jumlah Penjualan</h3>
                     <div class="d-inline-block">
-                        <h2 class="text-white">Rp. {{ number_format($totalSalesAmount, 0, ',', '.') }}</h2>
+                        <h2 class="text-white">Rp. {{ number_format($totalSalesAmount, 2, ',', '.') }}</h2>
                     </div>
                     <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
                 </div>
@@ -110,7 +111,7 @@
             data: {
                 labels: salesPerMonthLabels,
                 datasets: [{
-                    label: 'Penjualan (Rp.)',
+                    label: 'Penjualan (Rupiah)',
                     data: salesPerMonthValues,
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgba(54, 162, 235, 1)',
